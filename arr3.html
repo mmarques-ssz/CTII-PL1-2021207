@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Exemplo com Array</title>
+<script language="Javascript">
+  var estado;
+  estado = new Array(0, 0, 0, 0, 0);
+
+  function clicou(qual)
+  {
+      //alert("Clicou no led " + qual);
+      if(estado[qual-1] == 0)
+      {
+        estado[qual-1] = 1;
+        document.getElementById("led" + qual).setAttribute("src","ledon.gif");
+      }
+      else
+      {
+        estado[qual-1] = 0;
+        document.getElementById("led" + qual).setAttribute("src","ledoff.gif");
+      }
+  }
+
+  function total()
+  {
+      var k, i;
+      k = 0;
+      for(i=0; i < estado.length; i++)
+      {
+          if (estado[i]==1)
+          {
+              k++;
+          }
+      }
+      alert("Leds acesos: " + k + " | Leds apagados: " + (estado.length-k));
+  }
+</script>
+</head>
+
+<body>
+    <form>
+        <script language="Javascript">
+            var i;
+            for(i = 1; i <= 5; ++i)
+            {
+                document.write("<img id='led" + i + "' width='30' height='60' src='ledoff.gif' onclick='clicou(" + i + ");'><br>");
+            }
+        </script>
+        <input type="button" value="Total" onclick="total();">
+    </form>
+</body>
+</html>

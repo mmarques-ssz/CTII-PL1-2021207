@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Exemplo com Array</title>
+<script language="Javascript">
+  var lugar, i;
+  lugar = new Array();
+  for(i=0; i<5; i++)
+  {
+      lugar[i] = false;
+  }
+
+  function reservar(qual)  
+  {
+      if (lugar[qual])
+      {
+          alert("Este lugar já está ocupado");
+      }
+      else
+      {
+          lugar[qual] = true;
+          document.getElementById("b" + qual).setAttribute("value","Ocupado");
+          //alert("Reserva efetuada com sucesso");
+      }
+  }
+
+</script>
+</head>
+
+<body>
+    <table border='1'>
+    <form name="frm">
+        <script language="Javascript">
+        var i;
+        for(i = 0; i<5; i++)
+        {
+            document.write("<tr><td align='center'>");
+            document.write("<input type='button' id='b" + i + "' value='Livre' onclick='reservar(" + i + ");'>");
+            document.write("</td></tr>");
+        }
+    </script>
+    </form>
+    </table>
+</body>
+</html>
